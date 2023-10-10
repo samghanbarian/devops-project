@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ic-webapp-deployment
+spec:
+  replicas: 2  # Définissez le nombre de répliques de Pods ici
+  selector:
+    matchLabels:
+      app: ic-webapp
+  template:
+    metadata:
+      labels:
+        app: ic-webapp
+    spec:
+      containers:
+        - name: ic-webapp-container
+          image: atos-fbu-repo
+          ports:
+            - containerPort: 8080
